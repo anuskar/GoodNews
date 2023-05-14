@@ -1,5 +1,6 @@
 import openai
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 import json
@@ -61,6 +62,7 @@ def generate_newsletter(person, articles):
 
 # Create a Flask app
 app = Flask(__name__)
+CORS(app)
 
 # Define a route to get good news for a given person
 @app.route("/goodnews", methods=["POST"])
