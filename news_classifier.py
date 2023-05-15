@@ -15,7 +15,7 @@ def analyze_sentiment(article, person):
     article from the perspective of the person described in dual backticks (might not be relevant to the article) ``{person}`` and respond only in one word, 
     either <positive> or <negative>: {article}"""
     response = openai.Completion.create(
-        engine="text-babbage-001",
+        engine="text-ada-001",
         prompt=prompt,
         temperature=0.1,
         max_tokens=50,
@@ -32,7 +32,12 @@ def get_good_news(person, articles):
     for article in articles:
         sentiment = analyze_sentiment(article["article"], person)
         if "positive" in sentiment.lower():
-            entry = f"{article['id']}: {article['company']}: {article['title']}"
+            entry = {
+                "company": article["company"],
+                "title": article["title"],
+                "article": article["article"],
+                "link": article["link"]
+            }
             good_news.append(entry)
     return good_news
 
@@ -47,7 +52,7 @@ def generate_newsletter(person, articles):
     # Generate the newsletter using OpenAI's GPT-3 API
     prompt = f"""Please generate a newsletter with the following good news articles:\n\n{article_text}"""
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        engine="text-ada-001",
         prompt=prompt,
         temperature=0.5,
         max_tokens=1024,
@@ -81,7 +86,12 @@ def goodnewsletter():
         data = data["news"]
     person = request.form.get("person")
     good_newsletter = generate_newsletter(person, data)
-    return jsonify(good_newsletter)
+    print('data: ', data)
+    response = jsonify(newsletter=good_newsletter) # wrap the response in a JSON object with a key "newsletter"
+    # response.headers.add('Access-Control-Allow-Origin', '*')
+    print('response: ', response)
+    return response
+
 
 # Start the app
 if __name__ == "__main__":

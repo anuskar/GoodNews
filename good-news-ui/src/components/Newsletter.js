@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Newsletter() {
-  const [newsletter, setNewsletter] = useState("");
+  const [articles, setArticles] = useState([]);
 
-  const fetchNewsletter = async () => {
-    const response = await fetch('http://127.0.0.1:5000/newsletter', {
-      method: 'POST',
-      body: new URLSearchParams({
-        person: 'John Doe', // Replace with the person's name
-      }),
-    });
-    const data = await response.json();
-    setNewsletter(data);
-  };
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/goodnews', {
+        method: 'POST',
+        body: JSON.stringify({ person: 'John Doe' }), // replace 'John Doe' with the person name you want to get the newsletter for
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        setArticles(data);
+      })
+      .catch(error => console.error(error));
+  }, []);
 
   return (
     <div>
-      <button onClick={fetchNewsletter}>Get Newsletter</button>
-      <p>{newsletter}</p>
+      <h1>Newsletter</h1>
+      {articles.map((a, index) => (
+        <div key={index}>
+          <h2>{a.title}</h2>
+          <p>{a.article}</p>
+          <a href={a.link}>Read more</a>
+        </div>
+      ))}
     </div>
   );
 }
