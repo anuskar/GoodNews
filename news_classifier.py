@@ -15,7 +15,7 @@ def analyze_sentiment(article, person):
     article from the perspective of the person described in dual backticks (might not be relevant to the article) ``{person}`` and respond only in one word, 
     either <positive> or <negative>: {article}"""
     response = openai.Completion.create(
-        engine="text-ada-001",
+        engine="text-babbage-001",
         prompt=prompt,
         temperature=0.1,
         max_tokens=50,
@@ -30,8 +30,8 @@ def analyze_sentiment(article, person):
 def get_good_news(person, articles):
     good_news = []
     for article in articles:
-        sentiment = analyze_sentiment(article["article"], person)
-        if "positive" in sentiment.lower():
+        # sentiment = analyze_sentiment(article["article"], person)
+        # if "positive" in sentiment.lower():
             entry = {
                 "company": article["company"],
                 "title": article["title"],
@@ -52,7 +52,7 @@ def generate_newsletter(person, articles):
     # Generate the newsletter using OpenAI's GPT-3 API
     prompt = f"""Please generate a newsletter with the following good news articles:\n\n{article_text}"""
     response = openai.Completion.create(
-        engine="text-ada-001",
+        engine="text-babbage-001",
         prompt=prompt,
         temperature=0.5,
         max_tokens=1024,
@@ -84,13 +84,13 @@ def goodnewsletter():
     with open("./mock_news.json", "r") as f:
         data = json.load(f)
         data = data["news"]
-    person = request.form.get("person")
-    good_newsletter = generate_newsletter(person, data)
-    print('data: ', data)
-    response = jsonify(newsletter=good_newsletter) # wrap the response in a JSON object with a key "newsletter"
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    print('response: ', response)
-    return response
+    return data
+    # person = request.form.get("person")
+    # good_newsletter = generate_newsletter(person, data)
+    # response = jsonify(newsletter=good_newsletter) # wrap the response in a JSON object with a key "newsletter"
+    # # response.headers.add('Access-Control-Allow-Origin', '*')
+    # print('response: ', response)
+    # return response
 
 
 # Start the app
