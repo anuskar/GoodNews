@@ -2,32 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Link } from '@mui/material';
 import { css } from '@emotion/react';
 import styles from './Article.module.css'
+// import myImg from './download.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 
-function Article({article}) {
-
-//    const articleBoxStyles = css`
-//     padding: 50px;
-//     text-align: center;
-//     color: #000;
-//     margin: 20px;
-//     border: 1px solid black;
-//   `;
-
-//   const articleTitleStyles = css`
-//     font-size: 20px;
-//     font-weight: bold;
-//     margin-bottom: 8px;
-//   `;
-
-//   const articleContentStyles = css`
-//     font-size: 14px;
-//     margin-bottom: 8px;
-//   `;
-
+export default function Article({article}) {
   return (
       <div>
-         <Box sx={{padding: '50px',color:'#000', margin: '20px', border: '1px solid black'}}>
+         {/* <Box sx={{padding: '50px',color:'#000', margin: '20px', border: '1px solid black'}}>
             <Typography className = "articleTitleStyles" variant="h6" component="h2">
                {article.title}
             </Typography>
@@ -37,43 +20,24 @@ function Article({article}) {
             <Link href={article.link} color="primary">
                Read more
             </Link>
-         </Box>
+         </Box> */}
+         {/* <div class="article-card-container">
+            <img class="article-img" src={myImg}/>
+            <div class="article-body-container">
+               <h3 className="article-title">{article.title}</h3>
+               <p className="article-body">{article.article.length > 200 ? `${article.article.slice(0, 200)}...` : article.article}</p>
+               <div className="article-details-container">
+                  <p className="article-date">2 hours ago</p>
+                  <p className="article-author">By John Smith | </p>
+                  <p className="article-read-time">4 min read</p>
+               </div>
+            </div>
+            <div className="article-icon-container">
+               <button className="article-fav"><FontAwesomeIcon icon={faHeart}/></button>
+               <button className="article-save"><FontAwesomeIcon icon="bookmark"/></button>
+            </div>
+         </div> */}
+         <p>hi</p>
       </div>
   );
 }
-
-export default Article;
-
-
-
-
-
-
-
-// /** @jsxImportSource @emotion/react */
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { Grid, Box, Typography, Link, Paper } from '@mui/material';
-// import { css } from '@emotion/react';
-// import { ArticleWrapper, articleBoxStyles, articleTitleStyles, articleContentStyles } from './Article.styled';
-
-// const Article = ({ article }) => (
-//    <ArticleWrapper>
-//       <articleBoxStyles>
-//          <articleTitleStyles>
-//             {article.title}
-//          </articleTitleStyles>
-//          <articleContentStyles>
-//             {article.article.length > 100 ? `${article.article.slice(0, 100)}...` : article.article}
-//          </articleContentStyles>
-//          <Link href={article.link} color="primary">
-//             Read more
-//          </Link>
-//       </articleBoxStyles>
-//    </ArticleWrapper>
-// );
-
-// // Article.propTypes = {title, article, link};
-
-// // Article.defaultProps = {};
-

@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// Import Font Awesome core styles and icons
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons';
+
+// Add the imported icons to the library
+library.add(faHeart, faBookmark);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

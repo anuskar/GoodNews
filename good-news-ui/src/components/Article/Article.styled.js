@@ -40,3 +40,7 @@ export const articleContentStyles = css`
   font-size: 14px;
   margin-bottom: 8px;
 `;
+
+export const articleCardContainer = css`
+  background-color: black;
+`;

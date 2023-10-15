@@ -35,6 +35,7 @@ def get_good_news(person, articles):
             entry = {
                 "company": article["company"],
                 "title": article["title"],
+                "img": article["img"],
                 "article": article["article"],
                 "link": article["link"]
             }

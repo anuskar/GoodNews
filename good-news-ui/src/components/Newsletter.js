@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Box, Typography, Link, Paper } from '@mui/material';
 import { css } from '@emotion/react';
 import Article from './Article/Article';
-
+import Card from './Card/Card'
+import MainArticleCard from './MainArticleCard/MainArticleCard';
 
 
 function Newsletter() {
-  const [articles, setArticles] = useState([]);
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/goodnews', {
@@ -18,18 +19,18 @@ function Newsletter() {
       })
       .then(response => response.json())
       .then(data => {
-        setArticles(data);
+        setCards(data);
       })
       .catch(error => console.error(error));
   }, []);
 
   return (
-    <div>
-      <h1>Good News!</h1>
-      <Grid container spacing={2}>
-        {articles.map((a, index) => (
+    <div className='newsletter-container'>
+      <MainArticleCard card={cards[0]}/>
+      <Grid className='card-grid'container spacing={2}>
+        {cards.map((a, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <Article article={a}/>
+            <Card card={a}/>
           </Grid>
         ))}
       </Grid>
