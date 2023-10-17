@@ -24,6 +24,8 @@ function Newsletter() {
       .catch(error => console.error(error));
   }, []);
 
+  console.log("CARDS:", cards)
+
   return (
     <div className='newsletter-container'>
       <MainArticleCard card={cards[0]}/>

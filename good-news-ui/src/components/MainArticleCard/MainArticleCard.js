@@ -11,15 +11,15 @@ export default function MainArticleCard({card}){
     }
    return(
       <div>
-         <div class="main-article-card-container">
-            <img class="main-article-card-img" src={myImg}/>
-            <div class="main-article-card-body-container">
+         <div className="main-article-card-container">
+            <img className="main-article-card-img" src={card.image}/>
+            <div className="main-article-card-body-container">
                <div className="main-article-card-icon-container">
                   <button className="card-fav"><FontAwesomeIcon icon={faHeart}/></button>
                   <button className="card-save"><FontAwesomeIcon icon="bookmark"/></button>
                </div>
                <h3 className="main-article-card-title">{card.title}</h3>
-               <p className="main-article-card-body">{card.article.length > 300 ? `${card.article.slice(0, 300)}...` : card.article}</p>
+               <p className="main-article-card-body">{card.body.length > 300 ? `${card.body.slice(0, 300)}...` : card.body}</p>
                <div className="main-article-card-details-container">
                   <p className="card-date">2 hours ago</p>
                   <p className="card-author">By Jane Smith | </p>

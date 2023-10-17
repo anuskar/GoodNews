@@ -16,10 +16,10 @@ export default function Card({card}) {
   return (
       <div>
          <div class="card-card-container">
-            <img class="card-img" src={myImg}/>
+            <img class="card-img" src={card.image}/>
             <div class="card-body-container">
                <h3 className="card-title">{card.title}</h3>
-               <p className="card-body">{card.article.length > 200 ? `${card.article.slice(0, 200)}...` : card.article}</p>
+               <p className="card-body">{card.body.length > 200 ? `${card.body.slice(0, 200)}...` : card.body}</p>
                <div className="card-details-container">
                   <p className="card-date">2 hours ago</p>
                   <p className="card-author">By John Smith | </p>
