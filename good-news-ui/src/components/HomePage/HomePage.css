@@ -1,0 +1,9 @@
+.homepage-container{
+      background-color: #FFFDFA;
+      padding-top: 50px;
+      padding-bottom: 50px;
+}
+
+.main-news-container{
+      display: flex;
+}

@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+
+}
+
+.app-main-page{
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -163,3 +172,4 @@
 .main-article-card-details-container{
   display: flex;
 }
+

@@ -1,0 +1,30 @@
+.new-stories-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #00001A;
+    max-width: 350px;
+    padding: 30px 20px;
+}
+
+.new-stories-container > h1{
+    color: #E9AA52;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.new-stories-text > h2{
+    color: #FFFDFA;
+    font-size: 19px;
+}
+
+.new-stories-text > p{
+    color: #C5C6CE;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.new-stories-text > hr {
+    height: 0.5px;
+    background-color: #C5C6CE;
+    border: none;
+  }

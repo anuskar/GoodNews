@@ -15,7 +15,7 @@ newsApiKey = os.getenv("NEWS_API_KEY")
 
 def get_articles():
     articles_list = []
-    er = EventRegistry(newsApiKey)
+    er = EventRegistry('4ef87222-e160-45d9-93b7-c73afe5891e3')
     q = QueryArticlesIter(
         keywordsLoc = "title",
         lang = 'eng')
@@ -63,7 +63,7 @@ def analyze_sentiment(article):
     Article Title: {article}
     """
     response = openai.Completion.create(
-        engine="text-babbage-001",
+        engine="gpt-3.5-turbo-instruct",
         prompt=prompt,
         temperature=0.1,
         max_tokens=50,
@@ -83,8 +83,8 @@ def get_good_news(articles):
             entry = {
                 "title": article["title"],
                 "body": article.get("body", ""),
-                "url": article.get("url", ""),
-                "image": article.get("image", ""),
+                "link": article.get("link", ""),
+                "img": article.get("image", ""),
                 "date": article.get("date", ""),
             }
             good_news.append(entry)

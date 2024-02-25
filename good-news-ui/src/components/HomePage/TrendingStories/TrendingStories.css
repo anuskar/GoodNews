@@ -1,0 +1,45 @@
+.trending-stories-container{
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+
+}
+
+.trending-story{
+    display: flex;
+    min-height: 100px;
+    max-width: 280px;
+}
+
+.trending-story > img{
+    max-width: 70px;
+    margin-right: 20px;
+}
+
+.trending-story-text{
+    display: flex;
+    flex-direction: column;
+    /* margin: 0; */
+}
+
+.trending-story-text > h3{
+    font-size: 24px;
+    margin: 0;
+    color: #C5C6CE;
+    margin-bottom: 10px;
+}
+
+.trending-story-text > h4{
+    font-size: 15px;
+    font-weight: 800;
+    margin: 0;
+    color: #00001A;
+    margin-bottom: 8px;
+}
+
+.trending-story-text > p{
+    margin: 0;
+    color: #5E607A;
+    font-size: 14px;
+    line-height: 1.5;
+}

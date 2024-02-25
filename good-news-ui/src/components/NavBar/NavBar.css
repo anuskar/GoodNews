@@ -1,0 +1,37 @@
+/* Navbar.css */
+.nav-bar {
+    display: flex;
+    justify-content: space-between; /* Aligns items to each side */
+    align-items: center; /* Centers items vertically */
+    /* align-self: flex-start; */
+    /* background-color: #333; */
+    /* color: #00001A; */
+  }
+  
+  .nav-brand a{
+    margin-right: auto; /* Ensures the brand stays on the left */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #00001A;
+    text-decoration: none;
+    letter-spacing: -3px;
+
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex; /* Display links in a row */
+    padding: 0;
+    margin: 0; /* Removes default margin */
+  }
+  
+  .nav-links li {
+    margin-left: 50px; /* Spacing between navigation links */
+  }
+  
+  .nav-links a {
+    color: #5E607A;
+    text-decoration: none;
+  }
+  

@@ -1,0 +1,77 @@
+{
+    "news": [
+        {
+            "id": "1",
+            "company": "CNN",
+            "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.behance.net%2Fgallery%2F85274311%2FHuman-Heart-Cartoon&psig=AOvVaw1ewGDmobHV0Jd30sB_CA4k&ust=1696722969762000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJi46-DP4oEDFQAAAAAdAAAAABAE",
+            "title": "New study shows that exercising for 30 minutes a day can reduce risk of heart disease",
+            "body": "A new study conducted by researchers at Harvard University has found that exercising for just 30 minutes a day can significantly reduce the risk of developing heart disease. The study followed 10,000 participants over the course of 10 years, and found that those who exercised for 30 minutes a day had a 50% lower risk of developing heart disease compared to those who didn't exercise at all.",
+            "link": "https://www.cnn.com/2023/05/14/health/exercise-heart-disease-risk-study/index.html"
+        },
+        {
+            "id": "2",
+            "company": "Fox News",
+            "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fstock-market-cartoon&psig=AOvVaw32FF2BclLWiUUMTSsvImyr&ust=1696722987568000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMDMt-nP4oEDFQAAAAAdAAAAABAE",
+            "title": "Stock market plunges as concerns over inflation continue to grow",
+            "body": "The stock market took a major hit today as concerns over rising inflation continue to grow. Investors are worried that the Federal Reserve may raise interest rates to combat inflation, which would likely lead to a decrease in stock prices. Many analysts are predicting that the stock market will continue to be volatile in the coming months.",
+            "link": "https://www.foxnews.com/business/stock-market-plunges-inflation-concerns-grow"
+        },
+        {
+            "id": "3",
+            "company": "BBC",
+            "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn1.vectorstock.com%2Fi%2F1000x1000%2F36%2F05%2Fcartoon-cup-of-coffee-vector-20323605.jpg&tbnid=wLNF8dDYjO3YdM&vet=12ahUKEwi8otqJ0OKBAxW6DWIAHawIC1QQMygIegQIARBG..i&imgrefurl=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fcartoon-cup-of-coffee-vector-20323605&docid=nQGTK_2U7pscJM&w=1000&h=1080&q=coffee%20cartoon&ved=2ahUKEwi8otqJ0OKBAxW6DWIAHawIC1QQMygIegQIARBG",
+            "title": "New research shows that drinking coffee can reduce risk of Alzheimer's disease",
+            "body": "A new study conducted by researchers at the University of California has found that drinking coffee can significantly reduce the risk of developing Alzheimer's disease. The study followed 5,000 participants over the course of 10 years, and found that those who drank 3-5 cups of coffee a day had a 60% lower risk of developing Alzheimer's compared to those who didn't drink coffee.",
+            "link": "https://www.bbc.com/news/health-61431038"
+        },
+        {
+            "id": "4",
+            "company": "NBC News",
+            "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fcartoon-angry-cop-isolated-white-background-102467846.jpg&tbnid=7lJTHTk34YFk-M&vet=12ahUKEwirgIae0OKBAxVVC2IAHSIYBK0QMygBegQIARBO..i&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fillustration%2Fbad-cop.html&docid=Lvftx2NV7LZN0M&w=800&h=745&q=bad%20police%20cartoon&ved=2ahUKEwirgIae0OKBAxVVC2IAHSIYBK0QMygBegQIARBO",
+            "title": "Police officer shoots unarmed Black man in traffic stop",
+            "body": "A police officer in Minneapolis shot and killed an unarmed Black man during a traffic stop yesterday. The officer claims that the man was reaching for a weapon, but no weapon was found at the scene. The shooting has sparked protests and calls for justice from community leaders and activists.",
+            "link": "https://www.nbcnews.com/news/us-news/police-officer-shoots-unarmed-black-man-traffic-stop-minneapolis-n1340813"
+        },
+        {
+            "id": "5",
+            "company": "Reuters",
+            "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F03%2F31%2F58%2F44%2F360_F_331584467_H8topiACAgTTDDqcR2junpmGisWXjA9q.jpg&tbnid=W_X4tjoKq-ozoM&vet=12ahUKEwjwiper0OKBAxUTOlkFHUFLAoIQMygJegQIARBO..i&imgrefurl=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dwear%2Ba%2Bmask%2Bcartoon&docid=8xjTWfLAOlbp1M&w=637&h=360&q=face%20mask%20cartoon&ved=2ahUKEwjwiper0OKBAxUTOlkFHUFLAoIQMygJegQIARBO",
+            "title": "New study shows that wearing a mask can significantly reduce the spread of COVID-19",
+            "body": "A new study conducted by researchers at the University of California has found that wearing a mask can significantly reduce the spread of COVID-19. The study looked at data from 10,000 participants across multiple countries, and found that those who wore masks consistently had a 70% lower risk of contracting the virus compared to those who didn't wear masks.",
+            "link": "https://www.reuters.com/business/healthcare-pharmaceuticals/wearing-mask-can-significantly-reduce-spread-covid-19-study-2023-05-14/"
+        },
+        {
+        "id": "6",
+        "company": "BBC",
+        "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2F564x%2Fbd%2F34%2F95%2Fbd34957c04ac3ce72ca453800d863e1a.jpg&tbnid=wfPwv94uVjq4WM&vet=12ahUKEwj3nM2z0OKBAxUmL2IAHYV8CjcQMygMegQIARBS..i&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F98023729380231433%2F&docid=UOF_IITfZATOGM&w=550&h=550&q=butterfly%20cartoon&ved=2ahUKEwj3nM2z0OKBAxUmL2IAHYV8CjcQMygMegQIARBS",
+        "title": "Scientists discover new species of butterfly in Amazon rainforest",
+        "body": "A team of scientists has discovered a new species of butterfly in the Amazon rainforest. The butterfly, named 'Morpho helena', has bright blue wings with white spots and a wingspan of 10cm. The discovery is significant because it suggests that there may be many more undiscovered species in the rainforest.",
+        "link": "https://www.bbc.com/news/science-environment-61526495"
+        },
+        {
+        "id": "7",
+        "company": "NBC News",
+        "img": "",
+        "title": "Supreme Court rules in favor of LGBTQ+ workers in landmark decision",
+        "body": "The Supreme Court has ruled in a landmark decision that LGBTQ+ workers are protected under the Civil Rights Act of 1964, which prohibits discrimination on the basis of sex. The decision is being hailed as a major victory for LGBTQ+ rights, and is expected to have a significant impact on workplace discrimination cases going forward.",
+        "link": "https://www.nbcnews.com/politics/supreme-court/supreme-court-rules-favor-lgbtq-workers-landmark-decision-n1231536"
+        },
+        {
+        "id": "8",
+        "company": "Reuters",
+        "img": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.shutterstock.com%2Fshutterstock%2Fphotos%2F1782159740%2Fdisplay_1500%2Fstock-vector-lgbt-pride-month-concept-vector-illustration-cartoon-young-group-of-lover-people-standing-together-1782159740.jpg&tbnid=qWQKbyA9LOmu3M&vet=12ahUKEwi76_K70OKBAxWKO1kFHW3UA5MQMygFegQIARA-..i&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Flgbt-cartoon&docid=twiG5Syi3tzCkM&w=1500&h=879&q=lgbtq%20cartoon&ved=2ahUKEwi76_K70OKBAxWKO1kFHW3UA5MQMygFegQIARA-",
+        "title": "New study shows that moderate alcohol consumption may be beneficial for heart health",
+        "body": "A new study conducted by researchers at the University of Cambridge has found that moderate alcohol consumption may be beneficial for heart health. The study followed 10,000 participants over the course of 10 years, and found that those who consumed 1-2 drinks per day had a 20% lower risk of developing heart disease compared to those who didn't drink alcohol at all.",
+        "link": "https://www.reuters.com/body/us-health-heart-alcohol/moderate-alcohol-consumption-may-be-beneficial-for-heart-health-study-idUSKBN23K2B7"
+        },
+        {
+        "id": "9",
+        "company": "ABC News",
+        "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcartoon-forest-fire&psig=AOvVaw0x0UfRdc34LgqE4ug3edGm&ust=1696723174081000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMC9q8LQ4oEDFQAAAAAdAAAAABAE",
+        "title": "Wildfires continue to ravage California, prompting evacuations",
+        "body": "Wildfires are continuing to burn across California, prompting evacuations and causing widespread damage. The fires have already burned over 100,000 acres of land, and have destroyed dozens of homes and businesses. Firefighters are working around the clock to contain the blazes, but hot and dry weather conditions are making their efforts difficult.",
+        "link": "https://abcnews.go.com/US/wildfires-continue-ravage-california-prompting-evacuations/story?id=71063272"
+        }
+    ]
+}
+    

@@ -21,7 +21,7 @@ def goodnews():
         # data = data["news"]
     good_news = news_classifier.get_good_news(data)
     return jsonify(good_news)
-
+    
 # Start the app
 if __name__ == "__main__":
     # # Load the JSON data
