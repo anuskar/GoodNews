@@ -37,6 +37,11 @@
     margin-bottom: 8px;
 }
 
+.trending-story-text > h4:hover{
+    color: #F15D51;
+    cursor: pointer;
+}
+
 .trending-story-text > p{
     margin: 0;
     color: #5E607A;

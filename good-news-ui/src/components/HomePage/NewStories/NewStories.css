@@ -17,6 +17,11 @@
     font-size: 19px;
 }
 
+.new-stories-text > h2:hover{
+    color: #E9AA52;
+    cursor: pointer;
+}
+
 .new-stories-text > p{
     color: #C5C6CE;
     font-size: 14px;
