@@ -25,7 +25,7 @@ def goodnews():
 # Start the app
 if __name__ == "__main__":
     # # Load the JSON data
-    news_classifier.get_articles()
+    news_classifier.get_articles(False)
     app.run()
 
 

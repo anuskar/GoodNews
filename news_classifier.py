@@ -40,12 +40,14 @@ collection = db['top_headlines']
 
 
 
-def get_articles():
+def get_articles(reset):
     er = EventRegistry(newsApiKey)
     q = QueryArticlesIter(
         keywordsLoc = "title",
         lang = 'eng',
         sourceUri = QueryItems.OR([er.getSourceUri("bbc"), er.getSourceUri("cnn"), er.getSourceUri("new york times"), er.getSourceUri("cnn"), er.getSourceUri("nbc"), er.getSourceUri("abc"), er.getSourceUri("forbes"), er.getSourceUri("usa today"), er.getSourceUri("yahoo"), er.getSourceUri("cnbc"), er.getSourceUri("the washington post")]))
+    if reset:
+        vectorstore = None
     for article in q.execQuery(er, sortBy = "rel",
             returnInfo = ReturnInfo(articleInfo = ArticleInfoFlags(concepts = True, categories = True, basicInfo=True)),
             maxItems = 200):
@@ -67,7 +69,10 @@ def get_articles():
         # Upsert articles based on 'url' to avoid duplicates
                 collection.update_one({'uri': article_dict['uri']}, {'$setOnInsert': article_dict}, upsert=True)
                 documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['uri']})
-                vectorstore.add_documents([documentsss])
+                if vectorstore == None:
+                    vectorstore = FAISS.from_documents([documentsss], embeddings)
+                else: 
+                    vectorstore.add_documents([documentsss])
                 vectorstore.save_local("test")
 
             except errors.DuplicateKeyError:
