@@ -34,4 +34,9 @@
     color: #5E607A;
     text-decoration: none;
   }
+
+  .nav-links a:hover {
+    color: #F15D51;
+    text-decoration: none;
+  }
   

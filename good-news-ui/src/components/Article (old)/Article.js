@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 
-export default function Article({article}) {
+function Article({article}) {
   return (
       <div>
          {/* <Box sx={{padding: '50px',color:'#000', margin: '20px', border: '1px solid black'}}>

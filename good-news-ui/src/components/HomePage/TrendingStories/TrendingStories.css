@@ -9,11 +9,14 @@
     display: flex;
     min-height: 100px;
     max-width: 280px;
+    flex-direction: column;
 }
 
 .trending-story > img{
-    max-width: 70px;
+    min-width: 80px;
     margin-right: 20px;
+    max-height: 150px;
+    margin-bottom: 5px;
 }
 
 .trending-story-text{
@@ -48,3 +51,4 @@
     font-size: 14px;
     line-height: 1.5;
 }
+

@@ -10,20 +10,20 @@ import mockNews from '../assets/mock_news.json'
 function Newsletter() {
   const [cards, setCards] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://127.0.0.1:5000/goodnews', {
-  //       method: 'POST',
-  //       body: JSON.stringify({ person: 'John Doe' }), // replace 'John Doe' with the person name you want to get the newsletter for
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setCards(data);
-  //     })
-  //     .catch(error => console.error(error));
-  // }, []);
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/goodnews', {
+        method: 'POST',
+        body: JSON.stringify({ person: 'John Doe' }), // replace 'John Doe' with the person name you want to get the newsletter for
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        setCards(data);
+      })
+      .catch(error => console.error(error));
+  }, []);
 
   // useEffect(() => {
   //   // Fetch the articles JSON data when the component mounts
@@ -39,10 +39,10 @@ function Newsletter() {
   //     });
   // }, []); 
 
-  useEffect(() => {
-    // Since mockNews is already imported, you can directly use it
-    setCards(mockNews.news); // Update the 'cards' state with the imported data
-  }, []); 
+  // useEffect(() => {
+  //   // Since mockNews is already imported, you can directly use it
+  //   setCards(mockNews.news); // Update the 'cards' state with the imported data
+  // }, []); 
 
   console.log("CARDS:", cards)
 

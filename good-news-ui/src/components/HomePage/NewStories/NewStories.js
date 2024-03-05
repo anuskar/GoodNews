@@ -6,19 +6,35 @@ import newStoriesData from "./newStories.json";
 function NewStories() {
   const [newStories, setNewStories] = useState([]);
 
+  // useEffect(() => {
+  //   setNewStories(
+  //       newStoriesData.map((story) => ({
+  //       ...story,
+  //     }))
+  //   );
+  // }, []);
+
   useEffect(() => {
-    setNewStories(
-        newStoriesData.map((story) => ({
-        ...story,
-      }))
-    );
+    fetch('http://127.0.0.1:5000/getLatest', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        setNewStories(data);
+      })
+      .catch(error => console.error(error));
   }, []);
 
   const data = newStories.map((item) => {
     return (
         <div className="new-stories-text">
             <h2>{item.title}</h2>
-                <p>{item.paragraph}</p>
+                <p>{item.body.length > 50
+                ? `${item.body.slice(0, 50)}...`
+                : item.body}</p>
             <hr />
         </div>
     )

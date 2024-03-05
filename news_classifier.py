@@ -5,23 +5,52 @@ import os
 from dotenv import load_dotenv
 import json
 from eventregistry import *
+
+from pymongo import MongoClient, errors
+import requests
+from apscheduler.schedulers.background import BackgroundScheduler
+
+from langchain_community.document_loaders import TextLoader
+from langchain_core.documents import Document
+from langchain_openai import OpenAIEmbeddings
+# from langchain_community.vectorstores.chroma import Chroma
+from langchain_community.embeddings.openai import OpenAIEmbeddings
+
+from langchain_text_splitters import CharacterTextSplitter
+from langchain_community.vectorstores.faiss import FAISS
+
+
+
+
 load_dotenv()
+app = Flask(__name__)
+CORS(app)
 # Load the API key from the secrets manager
 # openai.api_key = secrets["api_key"]
 # Create a Flask app
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.load_local("test", embeddings)
+# vectorstore = FAISS(persist_directory="stuff", embedding_function=embeddings)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 newsApiKey = os.getenv("NEWS_API_KEY")
 
+mongo_connection_string = os.getenv("MONGO_CONNECTION")
+client = MongoClient(mongo_connection_string)
+# create a new database and collection
+db = client['news_database']
+collection = db['top_headlines']
+
+
+
 def get_articles():
-    articles_list = []
-    er = EventRegistry('4ef87222-e160-45d9-93b7-c73afe5891e3')
+    er = EventRegistry(newsApiKey)
     q = QueryArticlesIter(
         keywordsLoc = "title",
         lang = 'eng')
-    for article in q.execQuery(er, sortBy = "rel",
-            returnInfo = ReturnInfo(articleInfo = ArticleInfoFlags(concepts = True, categories = True)),
-            maxItems = 100):
+    for article in q.execQuery(er, sortBy = "socialScore",
+            returnInfo = ReturnInfo(articleInfo = ArticleInfoFlags(concepts = True, categories = True, basicInfo=True, socialScore=True)),
+            maxItems = 200):
         # Convert the article to a dictionary
         article_dict = {
             "uri": article["uri"],
@@ -35,9 +64,44 @@ def get_articles():
             "sentiment": article["sentiment"],
             "source": article["source"]["uri"],
         }
-        articles_list.append(article_dict)
-    with open('articles.json', 'w') as json_file:
-        json.dump(articles_list, json_file, indent=4)
+        if article_dict["sentiment"] > 0.1:
+            try:
+        # Upsert articles based on 'url' to avoid duplicates
+                collection.update_one({'url': article_dict['url']}, {'$setOnInsert': article_dict}, upsert=True)
+                documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['url']})
+                vectorstore.add_documents([documentsss])
+                vectorstore.save_local("test")
+
+            except errors.DuplicateKeyError:
+                print(f"Duplicate article skipped: {article['url']}")
+        # articles_list.append(article_dict)
+    # with open('articles.json', 'w') as json_file:
+    #     json.dump(articles_list, json_file, indent=4)
+    
+def mongo_doc_to_dict(doc):
+    """Convert a MongoDB document to a dictionary that is JSON serializable."""
+    doc["_id"] = str(doc["_id"])  # Convert ObjectId to string
+    return doc
+
+@app.route('/getLatest', methods=['GET'])
+def get_latest():
+    articles = collection.find().sort("date", -1).limit(4)
+    articles_list = [mongo_doc_to_dict(article) for article in articles]
+    return jsonify(articles_list)
+
+@app.route('/getMostRelevant', methods=['GET'])
+def get_most_relevant():
+    articles = collection.find().sort("sentiment", -1).limit(5)
+    articles_list = [mongo_doc_to_dict(article) for article in articles]
+    return jsonify(articles_list)
+
+@app.route('/getMostRelevant_byQuery', methods=['POST'])
+def get_most_relevant_by_query():
+    query = request.json['topic']
+    results = vectorstore.similarity_search(query, k=1)
+    page_content = [json.loads(result.page_content) for result in results]
+    return jsonify(page_content)
+
 
 # Define a function to perform sentiment analysis using OpenAI's GPT-3 API
 def analyze_sentiment(article):
@@ -78,52 +142,18 @@ def analyze_sentiment(article):
 def get_good_news(articles):
     good_news = []
     for article in articles:
-        sentiment = analyze_sentiment(article["title"])
-        if "positive" in sentiment.lower():
-            entry = {
-                "title": article["title"],
-                "body": article.get("body", ""),
-                "link": article.get("link", ""),
-                "img": article.get("image", ""),
-                "date": article.get("date", ""),
-            }
-            good_news.append(entry)
+        # sentiment = analyze_sentiment(article["title"])
+        # if "positive" in sentiment.lower():
+        entry = {
+            "title": article["title"],
+            "body": article.get("body", ""),
+            "link": article.get("link", ""),
+            "img": article.get("image", ""),
+            "date": article.get("date", ""),
+        }
+        good_news.append(entry)
     return good_news
 
-
-
-
-# @app.route("/newsletter", methods=["POST"])
-# def goodnewsletter():
-#     with open("./mock_news.json", "r") as f:
-#         data = json.load(f)
-#         # data = data["news"]
-#     return data
-    # person = request.form.get("person")
-    # good_newsletter = generate_newsletter(person, data)
-    # response = jsonify(newsletter=good_newsletter) # wrap the response in a JSON object with a key "newsletter"
-    # # response.headers.add('Access-Control-Allow-Origin', '*')
-    # print('response: ', response)
-    # return response
-
-#wrapper function for getting the news articler
-# def generate_newsletter(person, articles):
-#     # Get the good news articles for the person
-#     good_news = get_good_news(person, articles)
-
-#     # Concatenate the article titles and summaries into a single string
-#     article_text = "\n\n".join(good_news)
-
-#     # Generate the newsletter using OpenAI's GPT-3 API
-#     prompt = f"""Please generate a newsletter with the following good news articles:\n\n{article_text}"""
-#     response = openai.Completion.create(
-#         engine="text-babbage-001",
-#         prompt=prompt,
-#         temperature=0.5,
-#         max_tokens=1024,
-#         n=1,
-#         stop=None,
-#         timeout=60,
-#     )
-#     newsletter = response.choices[0].text.strip()
-#     return newsletter
+if __name__ == "__main__":
+    # # Load the JSON data
+    app.run()

@@ -6,6 +6,7 @@ import MainArticleCard from "./components/MainArticleCard/MainArticleCard";
 import HomePage from "./components/HomePage/Homepage";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/NavBar/NavBar";
+import Article from "./components/Article/Article";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} exact />
           <Route path="/newsletter" element={<Newsletter />} exact />
-          {/* <HomePage></HomePage> */}
+          <Route path="/article" element={<Article />} exact />
         </Routes>
 
         {/* <Newsletter /> */}
