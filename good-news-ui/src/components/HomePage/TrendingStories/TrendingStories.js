@@ -13,13 +13,18 @@ function TrendingStories(props) {
   }, [props.mostTrendingStories]); // React to changes in props.mostRelevantStory
 
   const data = trendingStories.map((item, index) => {
-    console.log(item)
+    const handleTitleClick = () => {
+      // Assuming 'item.url' is the property that contains the URL
+      if (item.url) {
+        window.open(item.url, "_blank"); // '_blank' opens the URL in a new tab
+      }
+    };
     return (
       <div key={index} className="trending-story">
         <img src={item.image} alt="main story image" />
         <div className="trending-story-text">
           <h3>{index + 1}</h3>
-          <h4>{item.title}</h4>
+          <h4 onClick={handleTitleClick}>{item.title}</h4>
           <p>{item.body.length > 200 ? `${item.body.slice(0, 50)}...` : item.body}</p>
         </div>
       </div>

@@ -16,19 +16,26 @@ function MainStory(props) {
   }, [props.mostRelevantStory]); // React to changes in props.mostRelevantStory
 
   const data = mainStory.map((item, index) => {
+    const handleReadMoreClick = () => {
+      // Assuming 'item.url' is the property that contains the URL
+      if (item.url) {
+        window.open(item.url, '_blank'); // '_blank' opens the URL in a new tab
+      }
+    };
+
     return (
       <div>
         <img className="main-story-img" src={item.image} alt="main story image" />
 
         <div className="main-story-text">
-          <h1>{item.title}</h1>
+          <h1 onClick={handleReadMoreClick}>{item.title}</h1>
           <div className="main-story-description-button-container">
             <p className="main-story-description">
               {item.body.length > 150
                 ? `${item.body.slice(0, 150)}...`
                 : item.body}
             </p>
-            <button>READ MORE</button>
+            <button onClick={handleReadMoreClick}>READ MORE</button>
           </div>
         </div>
       </div>

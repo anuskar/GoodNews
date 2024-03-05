@@ -25,9 +25,6 @@ from langchain_community.vectorstores.faiss import FAISS
 load_dotenv()
 app = Flask(__name__)
 CORS(app)
-# Load the API key from the secrets manager
-# openai.api_key = secrets["api_key"]
-# Create a Flask app
 embeddings = OpenAIEmbeddings()
 vectorstore = FAISS.load_local("test", embeddings)
 # vectorstore = FAISS(persist_directory="stuff", embedding_function=embeddings)
@@ -47,9 +44,10 @@ def get_articles():
     er = EventRegistry(newsApiKey)
     q = QueryArticlesIter(
         keywordsLoc = "title",
-        lang = 'eng')
-    for article in q.execQuery(er, sortBy = "socialScore",
-            returnInfo = ReturnInfo(articleInfo = ArticleInfoFlags(concepts = True, categories = True, basicInfo=True, socialScore=True)),
+        lang = 'eng',
+        sourceUri = QueryItems.OR([er.getSourceUri("bbc"), er.getSourceUri("cnn"), er.getSourceUri("new york times"), er.getSourceUri("cnn"), er.getSourceUri("nbc"), er.getSourceUri("abc"), er.getSourceUri("forbes"), er.getSourceUri("usa today"), er.getSourceUri("yahoo"), er.getSourceUri("cnbc"), er.getSourceUri("the washington post")]))
+    for article in q.execQuery(er, sortBy = "rel",
+            returnInfo = ReturnInfo(articleInfo = ArticleInfoFlags(concepts = True, categories = True, basicInfo=True)),
             maxItems = 200):
         # Convert the article to a dictionary
         article_dict = {
@@ -85,7 +83,7 @@ def mongo_doc_to_dict(doc):
 
 @app.route('/getLatest', methods=['GET'])
 def get_latest():
-    articles = collection.find().sort("date", -1).limit(4)
+    articles = collection.find().sort("date", -1).limit(3)
     articles_list = [mongo_doc_to_dict(article) for article in articles]
     return jsonify(articles_list)
 

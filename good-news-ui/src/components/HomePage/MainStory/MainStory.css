@@ -40,6 +40,11 @@
     min-width: 30%;
 }
 
+.main-story-text > h1:hover{
+    cursor: pointer;
+    color: #F15D51;
+}
+
 .main-story-description-button-container >button{
     background-color: #F15D51;
     width: 185px;
