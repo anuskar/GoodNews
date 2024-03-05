@@ -6,7 +6,6 @@ function TrendingStories(props) {
 
 
   useEffect(() => {
-    // Assuming you might want to update the state based on props update
     if (props.mostTrendingStories) {
       setTrendingStories(props.mostTrendingStories);
     }
@@ -14,7 +13,6 @@ function TrendingStories(props) {
 
   const data = trendingStories.map((item, index) => {
     const handleTitleClick = () => {
-      // Assuming 'item.url' is the property that contains the URL
       if (item.url) {
         window.open(item.url, "_blank"); // '_blank' opens the URL in a new tab
       }

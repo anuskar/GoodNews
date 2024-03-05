@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage/Homepage";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/NavBar/NavBar";
 import Article from "./components/Article/Article";
+import NewsByTopic from "./components/NewsByTopic/NewsByTopic";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<HomePage />} exact />
-          <Route path="/newsletter" element={<Newsletter />} exact />
+          <Route path="/newsbytopic" element={<NewsByTopic />} exact />
           <Route path="/article" element={<Article />} exact />
         </Routes>
 

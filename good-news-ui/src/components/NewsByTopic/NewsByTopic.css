@@ -1,0 +1,78 @@
+/* Base styles */
+.news-grid-container {
+    display: grid;
+    grid-gap: 20px; /* Uniform gap between items */
+    padding: 50px 100px;
+    background-color: #FFFDFA;
+  }
+  
+  .news-story {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content fits neatly within each card */
+  }
+  
+  .news-story img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures images cover the area nicely */
+  }
+  
+  .news-story-text {
+    padding: 15px;
+    background: #fff; /* Matches the TrendingStories background */
+  }
+  
+  .news-story-text h4 {
+    margin: 0 0 10px 0;
+    color: #00001A;
+    font-weight: bold; /* Ensuring consistency with TrendingStories titles */
+  }
+  
+  .news-story-text h4:hover {
+    color: #F15D51;
+    cursor: pointer;
+  }
+  
+  .news-story-text p {
+    margin: 0;
+    color: #5E607A;
+    font-size: 14px;
+    line-height: 1.5; /* Improves readability */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 1024px) {
+    /* For tablets and below */
+    .news-grid-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* For mobile devices */
+    .news-grid-container {
+      grid-template-columns: 1fr; /* Single column for mobile */
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    /* For laptops and above */
+    .news-grid-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for laptops */
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    /* For large monitors */
+    .news-grid-container {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns for large monitors */
+    }
+  }
+  
+
+  .news-story-text h4:hover {
+    color: #F15D51;
+    cursor: pointer;
+  }

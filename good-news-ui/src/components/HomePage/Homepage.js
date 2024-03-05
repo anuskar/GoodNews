@@ -8,7 +8,7 @@ function HomePage(){
     const [relevantStories, setRelevantStories] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/getMostRelevant', {
+        fetch('/getMostRelevant', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'

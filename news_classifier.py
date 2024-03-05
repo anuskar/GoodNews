@@ -65,8 +65,8 @@ def get_articles():
         if article_dict["sentiment"] > 0.1:
             try:
         # Upsert articles based on 'url' to avoid duplicates
-                collection.update_one({'url': article_dict['url']}, {'$setOnInsert': article_dict}, upsert=True)
-                documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['url']})
+                collection.update_one({'uri': article_dict['uri']}, {'$setOnInsert': article_dict}, upsert=True)
+                documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['uri']})
                 vectorstore.add_documents([documentsss])
                 vectorstore.save_local("test")
 
@@ -96,7 +96,7 @@ def get_most_relevant():
 @app.route('/getMostRelevant_byQuery', methods=['POST'])
 def get_most_relevant_by_query():
     query = request.json['topic']
-    results = vectorstore.similarity_search(query, k=1)
+    results = vectorstore.similarity_search(query, k=50)
     page_content = [json.loads(result.page_content) for result in results]
     return jsonify(page_content)
 
