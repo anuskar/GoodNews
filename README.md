@@ -15,14 +15,15 @@ Good News leverages a powerful tech stack comprising React for the frontend, Pyt
 - **NewsByTopic**: A dedicated tab showcasing a grid of articles on user-selected topics. Currently, this section hosts one tab, with plans to expand as users customize their interests.
 - **Account Tab**: A future addition aimed at personalizing the user experience further, allowing users to select and modify their news topic preferences.
 
-
+**Homepage Component with MainStory and NewStories**
 The top half of the homepage include the main story (i.e. breaking news) and new stories.
 ![HomePage Top](/images/HP1.png)
 
-
+**Homepage Component with TrendingStories**
 The bottom half of the homepage includes the trending stories
 ![HomePage Bottom](/images/HP2.png)
 
+**NewsByTopic Example**
 This is an example of how a NewsByTopic tab would look like. If their interests were in Sports they would see a grid of several articles relating to sports. 
 ![NewsByTopic Example](/images/Sports1.png)
 
