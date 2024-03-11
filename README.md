@@ -1,7 +1,5 @@
-# GoodNews
+# Good News
  
-# Good News App README
-
 ## Overview
 
 Good News is a refreshing take on the daily news cycle, designed to complement your usual news consumption with a dose of positivity. In a world where news platforms often bombard us with negative, polarizing, and depressing stories to drive views and engagement, Good News aims to balance the emotional scale. Good News focuses on delivering uplifting news about new technology, healthcare breakthroughs, and useful tips on time management and productivity, among others. It's a chance to bring more hope into our daily lives.
@@ -16,6 +14,10 @@ Good News leverages a powerful tech stack comprising React for the frontend, Pyt
   - **TrendingStories**: Stories gaining popularity for their positive impact and inspirational content.
 - **NewsByTopic**: A dedicated tab showcasing a grid of articles on user-selected topics. Currently, this section hosts one tab, with plans to expand as users customize their interests.
 - **Account Tab**: A future addition aimed at personalizing the user experience further, allowing users to select and modify their news topic preferences.
+
+![HomePage Top](/images/HP1.png)
+![HomePage Bottom](/images/HP2.png)
+![NewsByTopic Example](/images/Sports1.png)
 
 ### Backend Functionality
 

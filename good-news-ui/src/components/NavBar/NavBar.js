@@ -16,9 +16,6 @@ function Navbar() {
           <Link to="/newsbytopic">Sports</Link>
         </li>
         <li>
-          <Link to="/article">Article</Link>
-        </li>
-        <li>
           <Link to="/about">About</Link>
         </li>
         {/* Add more navigation links as needed */}
