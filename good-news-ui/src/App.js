@@ -6,7 +6,6 @@ import MainArticleCard from "./components/MainArticleCard/MainArticleCard";
 import HomePage from "./components/HomePage/Homepage";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/NavBar/NavBar";
-import Article from "./components/Article/Article";
 import NewsByTopic from "./components/NewsByTopic/NewsByTopic";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} exact />
           <Route path="/newsbytopic" element={<NewsByTopic />} exact />
-          <Route path="/article" element={<Article />} exact />
         </Routes>
 
         {/* <Newsletter /> */}

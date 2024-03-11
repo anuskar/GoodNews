@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Box, Typography, Link, Paper } from '@mui/material';
 import { css } from '@emotion/react';
-import Article from './Article (old)/Article';
 import Card from './Card (old)/Card'
 import MainArticleCard from './MainArticleCard/MainArticleCard';
 import mockNews from '../assets/mock_news.json'
