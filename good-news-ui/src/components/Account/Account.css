@@ -9,6 +9,7 @@
 
 .account-container > p{
     margin-top: 0;
+    font-size: 14px;
 }
  
 .topic-container{
@@ -19,9 +20,39 @@
 
 .topic-container > label{
     font-weight: 700;
+    font-size: 16px;
 }
 
 .topic-container > input{
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
+    border: none;
+    background-color: rgba(226, 224, 224, 0.765);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 0px 10px 0px 10px;
+}
+
+.topic-container > input:focus-visible{
+    border: solid 1px #E9AA52;
+}
+
+.topic-container > input:focus{
+    border: solid 1px #E9AA52;
+}
+
+.topic-container > button{
+    background-color: #F15D51;
+    width: 185px;
+    height: 48px;
+    color: white;
+    border: none;
+    font-size: 16px;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.topic-container > button:hover{
+    background-color: #00001A;
+    cursor: pointer;
 }

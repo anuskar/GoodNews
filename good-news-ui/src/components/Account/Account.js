@@ -52,7 +52,7 @@ function Account(props){
                 <input className='topic' onChange={handleChange} type="text" id="topic2" value={userInput.topic2}></input>
                 <label htmlFor='topic3' className='topic-label'>Topic 3</label>
                 <input className='topic' onChange={handleChange} type="text" id="topic3" value={userInput.topic3}></input>
-                <button type='submit'>Submit</button>
+                <button type='submit'>SUBMIT</button>
             </form>
         </div>
     )
