@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./NewsByTopic.css"; // Assuming CSS is in the same folder
 
-function NewsByTopic() {
+function NewsByTopic(props) {
   const [stories, setStories] = useState([]);
-  const topic = "sports";
+  const topic = props.topic
 
   useEffect(() => {
     fetch("/getMostRelevant_byQuery", {

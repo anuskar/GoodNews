@@ -105,6 +105,37 @@ def get_most_relevant_by_query():
     page_content = [json.loads(result.page_content) for result in results]
     return jsonify(page_content)
 
+@app.route('/getUserTopics', methods=['GET'])
+def get_user_topics():
+    try:
+        # Open the topics.json file and load the data
+        with open('topics.json', 'r') as json_file:
+            topics_data = json.load(json_file)
+        # Return the loaded data as a JSON response
+        return jsonify(topics_data)
+    except FileNotFoundError:
+        # If topics.json does not exist, return an error message
+        return jsonify({"error": "Topics data not found."}), 404
+
+@app.route('/setUserTopics', methods=['POST'])
+def set_user_topics():
+    # Extract topics from the incoming request
+    topic_data = request.get_json()
+
+    # Prepare the data to be written into the file
+    # Ensuring we only write the expected keys in case request contains more data
+    topics = {
+        'topic1': topic_data.get('topic1', ''),
+        'topic2': topic_data.get('topic2', ''),
+        'topic3': topic_data.get('topic3', '')
+    }
+
+    # Write the topics to a JSON file
+    with open('topics.json', 'w') as file:
+        json.dump(topics, file, indent=4)
+    
+    return {'message': 'Topics saved successfully'}, 200
+
 
 # Define a function to perform sentiment analysis using OpenAI's GPT-3 API
 def analyze_sentiment(article):

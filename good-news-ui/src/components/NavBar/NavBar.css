@@ -26,6 +26,7 @@
     display: flex; /* Display links in a row */
     padding: 0;
     margin: 0; /* Removes default margin */
+    text-transform: uppercase;
   }
   
   .nav-links li {
