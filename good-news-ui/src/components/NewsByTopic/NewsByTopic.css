@@ -2,7 +2,7 @@
 .news-grid-container {
     display: grid;
     grid-gap: 20px; /* Uniform gap between items */
-    padding: 50px 100px;
+    padding: 50px 30px;
     background-color: #FFFDFA;
   }
   
@@ -47,6 +47,7 @@
     /* For tablets and below */
     .news-grid-container {
       grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+      padding: 50px 70px;
     }
   }
   
@@ -61,6 +62,7 @@
     /* For laptops and above */
     .news-grid-container {
       grid-template-columns: repeat(3, 1fr); /* 3 columns for laptops */
+      padding: 50px 80px;
     }
   }
   
@@ -68,6 +70,7 @@
     /* For large monitors */
     .news-grid-container {
       grid-template-columns: repeat(4, 1fr); /* 4 columns for large monitors */
+      padding: 50px 100px;
     }
   }
   

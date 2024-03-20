@@ -1,8 +1,55 @@
-.homepage-container{
+/* Base styles for mobile devices */
+.homepage-container {
       background-color: #FFFDFA;
-      padding: 50px 100px;
-}
-
-.main-news-container{
-      display: flex;
-}
+      padding: 20px; /* Reduced padding for mobile devices */
+    }
+    
+    .main-news-container {
+      display: block; /* Stack content vertically on small devices */
+    }
+    
+    /* Media queries for adjusting layout on larger screens */
+    
+    /* Large Mobiles (devices at least 375px wide) */
+    @media only screen and (min-width: 375px) {
+      /* Adjustments for larger mobile devices, if necessary */
+    }
+    
+    /* Small Tablets (devices at least 600px wide) */
+    @media only screen and (min-width: 600px) {
+      .homepage-container {
+        padding: 30px; /* Increased padding for small tablets */
+      }
+      .main-news-container {
+        display: flex; /* Enable flex layout for wider screens */
+      }
+    }
+    
+    /* Large Tablets (devices at least 768px wide) */
+    @media only screen and (min-width: 768px) {
+      .homepage-container {
+        padding: 40px; /* Adjust padding for larger tablets */
+      }
+      /* No changes needed for .main-news-container here if flex layout is satisfactory */
+    }
+    
+    /* Laptops (devices at least 1024px wide) */
+    @media only screen and (min-width: 1024px) {
+      .homepage-container {
+        padding: 50px 80px; /* Adjust padding for laptops */
+      }
+    }
+    
+    /* Large Laptops/Small Monitors (devices at least 1200px wide) */
+    @media only screen and (min-width: 1200px) {
+      .homepage-container {
+        padding: 50px 100px; /* Restore original padding for larger screens */
+      }
+      /* The .main-news-container does not require changes here if the flex display works across devices */
+    }
+    
+    /* Larger Monitors (devices at least 1440px wide) */
+    @media only screen and (min-width: 1440px) {
+      /* Adjustments for larger monitors, if necessary */
+    }
+    

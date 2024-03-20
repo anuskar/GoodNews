@@ -1,4 +1,114 @@
-.main-story-container{
+/* Base styles for mobile devices */
+.main-story-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px; /* Adjust padding for mobile */
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+}
+
+.main-story-img {
+    width: 100%;
+    min-height: 200px; /* Adjust size for smaller screens */
+}
+
+.main-story-text {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align for a vertical stack */
+    margin-top: 20px; /* Adjust spacing */
+    padding: 0; /* Reset padding for mobile */
+}
+
+.main-story-description-button-container {
+    padding: 20px 0; /* Adjust padding for mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center-align elements */
+    max-width: 100%; /* Ensure it fits mobile screens */
+}
+
+.main-story-description {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    color: #5E607A;
+    line-height: 1.8;
+    margin-top: 0;
+}
+
+.main-story-text > h1 {
+    font-size: 24px; /* Adjust font size for smaller screens */
+}
+
+.main-story-description-button-container > button {
+    margin-top: 20px; /* Add some margin above the button on mobile */
+    background-color: #F15D51;
+    width: 185px;
+    height: 48px;
+    color: white;
+    border: none;
+}
+
+/* Media queries for progressively larger screens */
+
+/* Small tablets (e.g., 600px) */
+@media (min-width: 600px) {
+    .main-story-container {
+        padding: 0 30px;
+    }
+
+    .main-story-description {
+        font-size: 16px;
+    }
+
+    .main-story-text > h1 {
+        font-size: 30px;
+    }
+}
+
+/* Large tablets and small laptops (e.g., 768px) */
+@media (min-width: 768px) {
+    .main-story-img {
+        min-height: 250px;
+    }
+
+    .main-story-description-button-container {
+        padding: 30px 0;
+    }
+
+    .main-story-text {
+        flex-direction: row; /* Revert to row for larger screens */
+        justify-content: start; /* Align items to the start */
+        align-items: center;
+    }
+}
+
+/* Laptops and desktops (e.g., 1024px) */
+@media (min-width: 1024px) {
+    .main-story-container {
+        padding-right: 30px;
+        max-width: 850px; /* Set a max-width for larger screens */
+    }
+
+    .main-story-img {
+        min-height: 300px;
+    }
+
+    .main-story-description-button-container {
+        padding-left: 50px;
+    }
+
+    .main-story-text > h1 {
+        font-size: 37px;
+    }
+}
+
+/* Large monitors (e.g., 1440px and beyond) */
+@media (min-width: 1440px) {
+    /* Adjust styles if needed for very large screens */
+}
+
+
+/* .main-story-container{
     display: flex;
     flex-direction: column;
     padding-right: 30px;
@@ -14,7 +124,6 @@
     display: flex;
     margin-top: 30px;
     align-items: center;
-    /* padding-right: 10px */
 }
 
 .main-story-description-button-container{
@@ -56,4 +165,4 @@
 .main-story-description-button-container > button:hover{
     background-color: #00001A;
     cursor: pointer;
-}
+} */

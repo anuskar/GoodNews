@@ -1,58 +1,95 @@
-.account-container{
-    padding: 50px 100px;
+/* Base styles for mobile devices */
+.account-container {
+    padding: 20px; /* Adjust padding for mobile screens */
     background-color: #FFFDFA;
 }
 
-.account-container > h2{
+.account-container > h2 {
     margin-bottom: 0;
 }
 
-.account-container > p{
+.account-container > p {
     margin-top: 0;
     font-size: 14px;
 }
- 
-.topic-container{
+
+.topic-container {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 30px; /* Adjust top margin for mobile */
 }
 
-.topic-container > label{
+.topic-container > label {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px; /* Adjust font size for mobile */
 }
 
-.topic-container > input{
+.topic-container > input {
     border-radius: 10px;
     height: 40px;
     border: none;
     background-color: rgba(226, 224, 224, 0.765);
     margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 0px 10px 0px 10px;
+    margin-bottom: 20px; /* Adjust bottom margin for mobile */
+    padding: 0 10px; /* Adjust padding for mobile */
 }
 
-.topic-container > input:focus-visible{
+/* Ensure input focus styling is consistent */
+.topic-container > input:focus-visible,
+.topic-container > input:focus {
     border: solid 1px #E9AA52;
 }
 
-.topic-container > input:focus{
-    border: solid 1px #E9AA52;
-}
-
-.topic-container > button{
+.topic-container > button {
     background-color: #F15D51;
-    width: 185px;
+    width: auto; /* Make width auto to fit content */
+    padding: 10px 20px; /* Adjust padding for better mobile fit */
     height: 48px;
     color: white;
     border: none;
-    font-size: 16px;
+    font-size: 14px; /* Adjust font size for mobile */
     margin-top: 20px;
     align-self: center;
 }
 
-.topic-container > button:hover{
+.topic-container > button:hover {
     background-color: #00001A;
     cursor: pointer;
+}
+
+/* Media queries for progressively larger screens */
+
+/* Small tablets (e.g., 600px) */
+@media (min-width: 600px) {
+    .account-container {
+        padding: 40px; /* Adjust padding for tablets */
+    }
+
+    .topic-container > label,
+    .topic-container > button {
+        font-size: 16px; /* Revert to original font size */
+    }
+}
+
+/* Large tablets and small laptops (e.g., 768px) */
+@media (min-width: 768px) {
+    .account-container {
+        padding: 50px 80px; /* Adjust padding for larger tablets/small laptops */
+    }
+}
+
+/* Laptops and desktops (e.g., 1024px) */
+@media (min-width: 1024px) {
+    .account-container {
+        padding: 50px 100px; /* Revert to original padding */
+    }
+
+    .topic-container > input {
+        margin-bottom: 30px; /* Revert to original margin */
+    }
+}
+
+/* Large monitors (e.g., 1440px and beyond) */
+@media (min-width: 1440px) {
+    /* Additional styling adjustments for large monitors can be placed here */
 }

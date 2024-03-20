@@ -1,35 +1,99 @@
-.new-stories-container{
+/* Base styles for mobile devices */
+.new-stories-container {
     display: flex;
     flex-direction: column;
     background-color: #00001A;
-    max-width: 350px;
-    padding: 30px 20px;
+    max-width: 100%; /* Make sure it fits mobile screens */
+    padding: 20px; /* Adjust padding for smaller screens */
 }
 
-.new-stories-container > h1{
+.new-stories-container > h1 {
     color: #E9AA52;
-    font-size: 35px;
+    font-size: 24px; /* Adjust font size for smaller screens */
     margin-bottom: 10px;
 }
 
-.new-stories-text > h2{
+.new-stories-text > h2 {
     color: #FFFDFA;
-    font-size: 19px;
+    font-size: 16px; /* Adjust font size for smaller screens */
 }
 
-.new-stories-text > h2:hover{
-    color: #E9AA52;
-    cursor: pointer;
-}
-
-.new-stories-text > p{
+.new-stories-text > p {
     color: #C5C6CE;
-    font-size: 14px;
-    margin-bottom: 35px;
+    font-size: 12px; /* Adjust font size for readability on mobile */
+    margin-bottom: 20px; /* Adjust spacing for smaller screens */
 }
 
 .new-stories-text > hr {
     height: 0.5px;
     background-color: #C5C6CE;
     border: none;
-  }
+}
+
+/* Media queries for progressively larger screens */
+
+/* Small tablets (e.g., 600px) */
+@media (min-width: 600px) {
+    .new-stories-container {
+        max-width: 90%; /* Adjust width for tablet screens */
+        padding: 25px 30px; /* Adjust padding for larger screens */
+    }
+
+    .new-stories-container > h1 {
+        font-size: 28px;
+    }
+
+    .new-stories-text > h2 {
+        font-size: 18px;
+    }
+
+    .new-stories-text > p {
+        font-size: 14px;
+    }
+}
+
+/* Large tablets and small laptops (e.g., 768px) */
+@media (min-width: 768px) {
+    .new-stories-container {
+        max-width: 80%; /* Adjust max-width for larger tablets/small laptops */
+        padding: 30px 40px;
+    }
+
+    .new-stories-container > h1 {
+        font-size: 32px;
+    }
+
+    .new-stories-text > h2,
+    .new-stories-text > p {
+        font-size: 16px; /* Increase font size for better readability */
+    }
+}
+
+/* Laptops (e.g., 1024px) */
+@media (min-width: 1024px) {
+    .new-stories-container {
+        max-width: 70%; /* Adjust width for laptop screens */
+        padding: 35px 50px;
+    }
+
+    .new-stories-container > h1 {
+        font-size: 35px;
+    }
+
+    .new-stories-text > h2 {
+        font-size: 19px;
+    }
+
+    .new-stories-text > p {
+        font-size: 14px;
+    }
+}
+
+/* Large monitors (e.g., 1440px) */
+@media (min-width: 1440px) {
+    .new-stories-container {
+        max-width: 60%; /* Adjust max-width for large monitors */
+        padding: 30px 40px;
+    }
+    /* Adjust font sizes if needed for very large screens */
+}

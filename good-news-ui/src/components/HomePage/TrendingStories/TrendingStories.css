@@ -1,54 +1,102 @@
-.trending-stories-container{
+/* Base styles for mobile devices */
+.trending-stories-container {
     display: flex;
-    margin-top: 60px;
-    justify-content: space-between;
-
+    flex-direction: column; /* Align stories vertically for mobile */
+    justify-content: center; /* Center-align the stories for better aesthetics on mobile */
+    align-items: center; /* Ensure children align properly */
 }
 
-.trending-story{
+.trending-story {
     display: flex;
+    flex-direction: column; /* Keep it as column to stack img and text vertically */
     min-height: 100px;
-    max-width: 280px;
-    flex-direction: column;
+    max-width: 100%; /* Ensure it fits within mobile screens */
+    align-items: center; /* Center-align the items */
+    margin-top: 40px;
 }
 
-.trending-story > img{
-    min-width: 80px;
-    margin-right: 20px;
+.trending-story > img {
+    min-width: 80px; /* Adjust according to the content */
+    margin-right: 0; /* Remove margin right for mobile */
     max-height: 150px;
     margin-bottom: 5px;
+    width: 100%; /* Make image responsive */
+    object-fit: cover; /* Ensure images cover the space well */
 }
 
-.trending-story-text{
+.trending-story-text {
     display: flex;
     flex-direction: column;
-    /* margin: 0; */
 }
 
-.trending-story-text > h3{
-    font-size: 24px;
-    margin: 0;
+.trending-story-text > h3,
+.trending-story-text > h4,
+.trending-story-text > p {
+    margin: 0; /* Reset margins */
+    padding: 0 10px; /* Add some padding for text */
+}
+
+.trending-story-text > h3 {
+    font-size: 20px; /* Adjust font size for mobile */
     color: #C5C6CE;
     margin-bottom: 10px;
 }
 
-.trending-story-text > h4{
-    font-size: 15px;
-    font-weight: 800;
-    margin: 0;
+.trending-story-text > h4 {
+    font-size: 14px; /* Adjust font size for mobile */
     color: #00001A;
     margin-bottom: 8px;
 }
 
-.trending-story-text > h4:hover{
-    color: #F15D51;
-    cursor: pointer;
-}
-
-.trending-story-text > p{
-    margin: 0;
-    color: #5E607A;
-    font-size: 14px;
+.trending-story-text > p {
+    font-size: 12px; /* Adjust font size for mobile */
     line-height: 1.5;
 }
 
+/* Media queries for progressively larger screens */
+
+/* Small tablets (e.g., 600px) */
+@media (min-width: 600px) {
+    .trending-stories-container {
+        flex-direction: row; /* Revert to row for larger screens */
+        flex-wrap: wrap; /* Wrap items if necessary */
+        justify-content: space-around; /* Space items evenly */
+        margin-top: 40px;
+    }
+
+    .trending-story {
+        max-width: 45%; /* Adjust width to fit two items per row */
+    }
+}
+
+/* Large tablets and small laptops (e.g., 768px) */
+@media (min-width: 768px) {
+    .trending-stories-container {
+        justify-content: space-between; /* Adjust spacing */
+    }
+
+    .trending-story {
+        max-width: 280px; /* Revert to fixed width for consistency */
+    }
+}
+
+/* Laptops and desktops (e.g., 1024px) */
+@media (min-width: 1024px) {
+    .trending-stories-container {
+        margin-top: 60px; /* Revert to original top margin */
+    }
+
+    .trending-story-text > h3 {
+        font-size: 24px; /* Revert to original font size */
+    }
+
+    .trending-story-text > h4 {
+        font-size: 15px; /* Revert to original font size */
+    }
+
+    .trending-story-text > p {
+        font-size: 14px; /* Revert to original font size */
+    }
+}
+
+/* Adjustments for larger monitors can be added here if necessary */
