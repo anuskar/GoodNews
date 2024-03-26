@@ -8,7 +8,6 @@ from eventregistry import *
 
 from pymongo import MongoClient, errors
 import requests
-from apscheduler.schedulers.background import BackgroundScheduler
 
 from langchain_community.document_loaders import TextLoader
 from langchain_core.documents import Document
@@ -39,7 +38,6 @@ db = client['news_database']
 collection = db['top_headlines']
 
 
-
 def get_articles(reset):
     er = EventRegistry(newsApiKey)
     q = QueryArticlesIter(
@@ -64,16 +62,19 @@ def get_articles(reset):
             "sentiment": article["sentiment"],
             "source": article["source"]["uri"],
         }
-        if article_dict["sentiment"] > 0.1:
+        if article_dict["sentiment"] is not None and article_dict["sentiment"] > 0.1:
             try:
         # Upsert articles based on 'url' to avoid duplicates
-                collection.update_one({'uri': article_dict['uri']}, {'$setOnInsert': article_dict}, upsert=True)
-                documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['uri']})
-                if vectorstore == None:
-                    vectorstore = FAISS.from_documents([documentsss], embeddings)
-                else: 
-                    vectorstore.add_documents([documentsss])
-                vectorstore.save_local("test")
+                hasOne = collection.find_one({'uri': article_dict['uri']})
+                # print("hasOne: ", hasOne)
+                if not hasOne:
+                    collection.update_one({'uri': article_dict['uri']}, {'$setOnInsert': article_dict}, upsert=True)
+                    documentsss = Document(page_content=str(json.dumps(article_dict)), metadata={"source": article_dict['uri']})
+                    if vectorstore == None:
+                        vectorstore = FAISS.from_documents([documentsss], embeddings)
+                    else: 
+                        vectorstore.add_documents([documentsss])
+                    vectorstore.save_local("test")
 
             except errors.DuplicateKeyError:
                 print(f"Duplicate article skipped: {article['url']}")
@@ -190,4 +191,4 @@ def get_good_news(articles):
 
 if __name__ == "__main__":
     # # Load the JSON data
-    app.run()
+    app.run(debug=True)

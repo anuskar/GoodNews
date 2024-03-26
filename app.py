@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import json
 from eventregistry import *
 import news_classifier
+from apscheduler.schedulers.background import BackgroundScheduler
+
 load_dotenv()
 # Load the API key from the secrets manager
 # openai.api_key = secrets["api_key"]
@@ -25,7 +27,16 @@ def goodnews():
 # Start the app
 if __name__ == "__main__":
     # # Load the JSON data
-    news_classifier.get_articles(False)
-    app.run()
+
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(func=news_classifier.get_articles, args=[True], trigger="interval", minutes=1)
+    scheduler.start()
+
+    # Shut down the scheduler when exiting the app
+    try:
+        app.run(debug=True, port=8001)
+    except (KeyboardInterrupt, SystemExit):
+        scheduler.shutdown()
+    # app.run()
 
 
